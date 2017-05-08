@@ -1,5 +1,5 @@
 //! This crate provides DangerousOption - a type similar to `!` in Swift language. It's basically
-//! an `Option` which panics if dereferenced while containing `None`. This is useful in cases one
+//! an `Option` which panics if dereferenced while containing `None`. This is useful in case one
 //! needs to initialize things a little bit later or when accesses are made via functions called
 //! from trusted library.
 //!
@@ -9,7 +9,7 @@
 //! happened but in the place where assignment happened. Since this type has only three, very
 //! unique methods for creating invalid value, those can be easily searched for and tracked.
 //!
-//! It has alse intentionally long name to prevent over-use. Also the methods creating dangerous
+//! It has also intentionally long name to prevent over-use. Also the methods creating dangerous
 //! state have longer names then those creating valid state.
 //!
 //! Note: you should prefer dereferencing the DangerousOption and passing dereferenced value
@@ -46,8 +46,8 @@ impl ExceptionHandler for DefaultExceptionHandler {
     }
 }
 
-/// Represents a value that migt be uninitialized, but most probably isn't. It provides convenient
-/// acces to the value via `Deref` while checking whether the value is actually initialized.
+/// Represents a value that might be uninitialized, but most probably isn't. It provides convenient
+/// access to the value via `Deref` while checking whether the value is actually initialized.
 ///
 /// When deref of initialized value is attempted, the ExceptionHandler is called. This will lead to
 /// aborting of the task.
@@ -85,7 +85,7 @@ impl<T, H: ExceptionHandler> DangerousOption<T, H> {
         this.0.take().unwrap_or_else(|| H::bad_take())
     }
 
-    /// Tries to takake out the value. After call to this function, the value is uninitialized.
+    /// Tries to take out the value. After call to this function, the value is uninitialized.
     pub fn take_checked(this: &mut Self) -> Option<T> {
         this.0.take()
     }
