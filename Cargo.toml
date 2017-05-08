@@ -1,0 +1,11 @@
+[package]
+name = "dangerous_option"
+version = "0.1.0"
+authors = ["Martin Habovštiak <martin.habovstiak@gmail.com>"]
+license = "MITNFA"
+description = "This crate provides DangerousOption - a type similar to ! in Swift language. It's basically an Option which panics if dereferenced while containing None. no_std compatible."
+homepage = "https://github.com/Kixunil/dangerous_option"
+repository = "https://github.com/Kixunil/dangerous_option"
+readme = "README.md"
+keywords = ["Option", "auto unwrap", "implicitly-unwrapped"]
+categories = ["no-std", "rust-patterns"]
