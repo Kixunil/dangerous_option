@@ -106,6 +106,12 @@ impl<T, H: ExceptionHandler> DangerousOption<T, H> {
     }
 }
 
+impl<T> core::clone::Clone for DangerousOption<T> where T : Clone {
+    fn clone(&self) -> Self {
+        DangerousOption(self.0.clone(), Default::default())
+    }
+}
+
 #[cfg(test)]
 mod tests {
     #[test]
